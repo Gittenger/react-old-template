@@ -1,20 +1,31 @@
-import typography from "./typography/typography";
-import { cssIndex } from "./css/utils.styles";
+import typography from './typography/typography'
+import { cssIndex } from './css/utils.styles'
 
-export const colors = {
-	greyLight: "#fafafa",
-	white: "#ffffff",
-	black: "#010101",
-};
+const darkColors = {
+	primary: '#090A08',
+	secondary: '#CFF2DC',
+}
+
+const lightColors = {
+	primary: '#CFF2DC',
+	secondary: '#090A08',
+}
 
 export const css = {
 	...cssIndex,
-};
+}
 
-export const theme = {
-	colors,
+const shared = {
 	typography,
 	css,
-};
+}
 
-export default theme;
+export const themeDark = {
+	colors: darkColors,
+	...shared,
+}
+
+export const themeLight = {
+	colors: lightColors,
+	...shared,
+}

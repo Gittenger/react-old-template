@@ -1,32 +1,28 @@
-import styled from "styled-components";
+import React, { useState } from 'react'
+import { ThemeProvider } from 'styled-components'
+import { themeDark, themeLight } from './styles/theme'
+import GlobalStyles from './styles/global.styles.jsx'
 
-import GlobalStyles from "./styles/global.styles.jsx";
-
-import components from "./components/typography/typography.components";
-import { device } from "./styles/css/utils.styles";
-
-const { MyP, MyH1 } = components;
-
-const MyOverride = styled(MyP)`
-	color: green;
-	${device.tabletM} {
-		font-size: 2rem;
-	}
-`;
-
-const MyOverrideH1 = styled(MyH1)`
-	color: red;
-	font-weight: 700;
-`;
+import CIndex from './components/components.index.js'
 
 function App() {
+	const [theme, setTheme] = useState('light')
+	const {
+		TComp: { P },
+	} = CIndex
+
+	const changeTheme = () => {
+		theme === 'light' ? setTheme('dark') : setTheme('light')
+	}
+
 	return (
-		<>
+		<ThemeProvider theme={theme === 'light' ? themeLight : themeDark}>
 			<GlobalStyles />
-			<MyOverride>Hello world</MyOverride>
-			<MyOverrideH1>HEADING</MyOverrideH1>
-		</>
-	);
+			<div style={{ height: '15rem' }}></div>
+			<button onClick={changeTheme}>CHANGE THEME</button>
+			<P>Here is some sample text. Hit the button to change the theme.</P>
+		</ThemeProvider>
+	)
 }
 
-export default App;
+export default App

@@ -1,28 +1,91 @@
-import styled, { css } from "styled-components";
-import { device } from "../../styles/css/utils.styles";
+import styled, { css } from 'styled-components'
+import { device } from '../../styles/css/utils.styles'
 
-export const MyP = styled.p`
+// MAIN TYPOGRAPHY STYLES
+// set globalScale in fontVars.js
+export const P = styled.p`
 	font-family: var(--fontMain);
-	font-size: 4rem;
+	color: ${({ theme: { colors } }) => colors.secondary};
 	font-weight: 400;
+	letter-spacing: 0.07em;
+	margin-bottom: 0.9rem;
+
+	--scale: 1;
+	font-size: calc((var(--scale) * 2.7rem) * var(--globalScale));
+	line-height: 1.6;
 
 	${device.tabletLand} {
-		font-size: 2.5rem;
+		font-size: calc((var(--scale) * 2.2rem) * var(--globalScale));
+		letter-spacing: 0.05em;
 	}
-`;
+	${device.tabletS} {
+		font-size: calc((var(--scale) * 1.8rem) * var(--globalScale));
+		line-height: 1.8;
+	}
+	${device.mobileM} {
+		font-size: calc((var(--scale) * 1.7rem) * var(--globalScale));
+		line-height: 1.7;
+	}
+	${device.mobileS} {
+		font-size: calc((var(--scale) * 1.5rem) * var(--globalScale));
+		line-height: 1.6;
+	}
+`
 
-export const MyH1 = styled.h1`
+export const H1 = styled.h1`
 	font-family: var(--fontHeading);
-	font-size: 4rem;
+	color: ${({ theme: { colors } }) => colors.secondary};
+	letter-spacing: 0.09em;
+	white-space: nowrap;
+
+	--scale: 1;
+	font-size: calc((var(--scale) * 3.8rem) * var(--globalScale));
+	margin-bottom: 1.4rem;
 
 	${device.tabletLand} {
-		font-size: 2.5rem;
+		font-size: calc((var(--scale) * 3rem) * var(--globalScale));
+		letter-spacing: 0.07em;
+		margin-bottom: 1.3rem;
 	}
-`;
+	${device.tabletS} {
+		margin-bottom: 1.2rem;
+	}
+	${device.mobileM} {
+		font-size: calc((var(--scale) * 2.6rem) * var(--globalScale));
+		margin-bottom: 0.9rem;
+	}
+	${device.mobileS} {
+		font-size: calc((var(--scale) * 2.2rem) * var(--globalScale));
+		margin-bottom: 0.5rem;
+	}
+`
 
-export const components = {
-	MyP,
-	MyH1,
-};
+// EXTENDED TYPOGRAPHY STYLES
 
-export default components;
+export const AuthorText = styled(P)`
+	font-weight: 200;
+	--scale: 0.8;
+
+	margin-bottom: 1.4rem;
+
+	${device.tabletLand} {
+		margin-bottom: 1.3rem;
+	}
+	${device.tabletS} {
+		margin-bottom: 1.2rem;
+	}
+	${device.mobileM} {
+		margin-bottom: 0.9rem;
+	}
+	${device.mobileS} {
+		margin-bottom: 0.5rem;
+	}
+`
+
+export const TComp = {
+	P,
+	H1,
+	AuthorText,
+}
+
+export default TComp

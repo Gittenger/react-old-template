@@ -1,24 +1,18 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import fontFaces from "./typography/fontFaces";
+import fontFaces from './typography/fontFaces'
+import resetCSS from './css/resetCSS.js'
 
 const GlobalStyles = createGlobalStyle`
 ${fontFaces}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%;
-}
+${resetCSS}
 
 body {
 	${({ theme: { css } }) => css.flexCenterCol};
     font-size: 1.8rem;
     width: 100vw;
+
+    background-color: ${({ theme: { colors } }) => colors.primary};
 }
 
 #root {
@@ -26,27 +20,10 @@ body {
     
     /* set font vars in root */
     ${({ theme: { typography } }) => typography.fontVars.fontMain};
+
+    /* set shared typography styles */
+    ${({ theme: { typography } }) => typography.sharedStyles};
 }
+`
 
-/* set shared typography styles */
-  ${({ theme: { typography } }) => typography.sharedStyles};
-
-a {
-    text-decoration: none;
-}
-
-a:link,
-a:visited{
-    color: unset;
-}
-
-ul, li {
-    list-style: none;
-}
-
-button {
-    font-family: inherit;
-}
-`;
-
-export default GlobalStyles;
+export default GlobalStyles

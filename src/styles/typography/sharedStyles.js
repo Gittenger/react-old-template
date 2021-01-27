@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from 'styled-components'
 
 export const sharedStyles = css`
 	h1,
@@ -9,6 +9,6 @@ export const sharedStyles = css`
 	h6 {
 		color: blue;
 	}
-`;
+`
 
-export default sharedStyles;
+export default sharedStyles
