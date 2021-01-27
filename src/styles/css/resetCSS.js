@@ -9,6 +9,14 @@ export const resetCSS = css`
 
 	html {
 		font-size: 62.5%;
+
+		width: 100%;
+		overflow-x: hidden;
+	}
+
+	body {
+		width: 100%;
+		overflow-x: hidden;
 	}
 
 	a {

@@ -10,9 +10,11 @@ ${resetCSS}
 body {
 	${({ theme: { css } }) => css.flexCenterCol};
     font-size: 1.8rem;
-    width: 100vw;
-
+ 
     background-color: ${({ theme: { colors } }) => colors.primary};
+    color:  ${({ theme: { colors } }) => colors.secondary};
+
+    transition: background-color .3s, color .3s;
 }
 
 #root {

@@ -5,10 +5,11 @@ import { device } from '../../styles/css/utils.styles'
 // set globalScale in fontVars.js
 export const P = styled.p`
 	font-family: var(--fontMain);
-	color: ${({ theme: { colors } }) => colors.secondary};
 	font-weight: 400;
 	letter-spacing: 0.07em;
 	margin-bottom: 0.9rem;
+	color: ${({ theme: { colors } }) => colors.secondary};
+	transition: color 0.3s;
 
 	--scale: 1;
 	font-size: calc((var(--scale) * 2.7rem) * var(--globalScale));
@@ -34,9 +35,10 @@ export const P = styled.p`
 
 export const H1 = styled.h1`
 	font-family: var(--fontHeading);
-	color: ${({ theme: { colors } }) => colors.secondary};
 	letter-spacing: 0.09em;
 	white-space: nowrap;
+	color: ${({ theme: { colors } }) => colors.secondary};
+	transition: color 0.3s;
 
 	--scale: 1;
 	font-size: calc((var(--scale) * 3.8rem) * var(--globalScale));
