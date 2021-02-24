@@ -29,3 +29,5 @@ export const themeLight = {
 	colors: lightColors,
 	...shared,
 }
+
+export default theme
