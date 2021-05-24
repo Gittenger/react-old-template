@@ -30,4 +30,9 @@ export const themeLight = {
 	...shared,
 }
 
+export const theme = {
+	colors: darkColors,
+	...shared,
+}
+
 export default theme
